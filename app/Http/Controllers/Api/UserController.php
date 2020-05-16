@@ -36,7 +36,7 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
         ]);
@@ -48,9 +48,7 @@ class UserController extends Controller
         $input['activation_code'] = str_replace('-', '', Str::uuid());
         $user = User::create($input);
         $user->notify(new UserRegistered($user));
-        $success['token'] =  $user->createToken('MyApp')->accessToken;
-        $success['name'] =  $user->name;
-        return response()->json(['success' => $success]);
+        return response()->json(['success' => $user]);
     }
 
     /**
