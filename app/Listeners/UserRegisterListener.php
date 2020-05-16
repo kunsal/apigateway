@@ -26,6 +26,5 @@ class UserRegisterListener
      */
     public function handle(UserRegistered $event)
     {
-
     }
 }

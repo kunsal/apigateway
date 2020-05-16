@@ -3,6 +3,8 @@
          xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          colors="true"
+         verbose="true"
+         stopOnFailure="false"
 >
     <testsuites>
         <testsuite name="Unit">
@@ -18,6 +20,7 @@
         </whitelist>
     </filter>
     <php>
+        <ini name="display_errors" value="true"/>
         <server name="APP_ENV" value="testing"/>
         <server name="BCRYPT_ROUNDS" value="4"/>
         <server name="CACHE_DRIVER" value="array"/>
@@ -27,12 +30,5 @@
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
-        <!-- <server name="DB_CONNECTION" value="mysql">
-        <server name="DB_HOST" value="localhost">
-        <server name="DB_PORT" value="8889">
-        <server name="DB_DATABASE" value="kayauth_test">
-        <server name="DB_DATABASE" value="kayauth_test">
-        <server name="DB_USERNAME" value="root">
-        <server name="DB_PASSWORD" value="root"> -->
     </php>
 </phpunit>
