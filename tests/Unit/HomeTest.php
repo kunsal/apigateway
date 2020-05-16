@@ -1,12 +1,21 @@
 <?php
-namespace Test\Unit;
 
-use PHPUnit\Framework\TestCase;
+namespace Tests\Feature;
 
-class HomeTest extends TestCase {
-    public function testThatHomepageLoads()
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class HomeTest extends TestCase
+{
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testBasicTest()
     {
+       // $this->withoutExceptionHandling();
         $response = $this->get('/');
-        $response->assertStatus(200);
+        $response->assertOk();
     }
 }
